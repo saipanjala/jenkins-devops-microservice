@@ -5,9 +5,9 @@ node {
 	stage('Test') {
 		echo "Test"
 	}
-	stage( 'Integration Test') {^M
-	         echo "Integration Test"^M
-        }^M
+	stage('Integration Test') {
+	         echo "Integration Test"
+        }
 }
 
 
