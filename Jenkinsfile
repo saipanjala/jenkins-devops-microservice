@@ -10,8 +10,8 @@ pipeline {
 	stages {
 		stage('Build') {
 			steps {
-				sh 'mv --version'
-				sh 'docker version'
+			//	sh 'mv --version'
+			//	sh 'docker version'
 				//echo "Build"
 				echo "Build"
 				echo "PATH - $PATH"
