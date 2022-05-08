@@ -8,8 +8,8 @@ pipeline {
 	}
 
 	stages {
-		stage('Build') {
-			steps {
+		stage('Checkout') {
+			 steps {
 			//	sh 'mv --version'
 			//	sh 'docker version'
 				//echo "Build"
@@ -20,16 +20,22 @@ pipeline {
 				echo "JOB_NAME - $env.JOB_NAME"
 				echo "BUILD_TAG - $env.BUILD_TAG"
 				echo "BUILD_URL - $env.BUILD_URL"
+			 }
+		}
+		stage('Compile') {
+			steps {
+				sh "mvn clean compile"
 			}
 		}
+
 		stage('Test') {
 			steps {
-				echo "Test"
+				sh "mvn test"
 			}
 		}
 		stage('Integration Test') {
 			steps {
-				echo "Integration Test"
+				sh "mvn failsafe:integration-test failsafe:verify"
 			}
 		}
 	}
